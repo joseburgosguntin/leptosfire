@@ -26,6 +26,7 @@ tracing = { version = "0.1.37", optional = true }
 http = "0.2.8"
 serde = "1.0.152"
 firebase-rs = "2.0.6"
+paste = "1.0"
 
 [features]
 hydrate = ["leptos/hydrate", "leptos_meta/hydrate", "leptos_router/hydrate"]
@@ -64,7 +65,7 @@ assets-dir = "public"
 site-addr = "127.0.0.1:3000"
 
 # The port to use for automatic reload monitoring
-reload-port = 3001
+reload-port = 3003
 
 # [Optional] Command to use when running end2end tests. It will run in the end2end dir.
 #   [Windows] for non-WSL use "npx.cmd playwright test"

@@ -4,8 +4,9 @@ async fn main() {
     use axum::{extract::Extension, routing::post, Router};
     use leptos::*;
     use leptos_axum::{generate_route_list, LeptosRoutes};
-    use start_axum::app::{*, LogBool};
+    use start_axum::app::*;
     use start_axum::fileserv::file_and_error_handler;
+    use start_axum::user::*;
     use std::sync::Arc;
 
     simple_logger::init_with_level(log::Level::Debug).expect("couldn't initialize logging");
@@ -21,7 +22,8 @@ async fn main() {
     let routes = generate_route_list(|cx| view! { cx, <App/> }).await;
 
     _ = GetUsers::register();
-    LogBool::register().expect("to register LogBool");
+    _ = InsertUser::register();
+    _ = DeleteUser::register();
 
     // build our application with a route
     let app = Router::new()
@@ -38,7 +40,7 @@ async fn main() {
         .await
         .unwrap();
 
-     // _ = InsertUser::register();
+    // _ = InsertUser::register();
     // _ = GetCollection::register();
     // _ = GetDocument::register();
     // _ = GetThing::register();

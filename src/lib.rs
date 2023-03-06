@@ -1,11 +1,13 @@
 use cfg_if::cfg_if;
-use leptos::*;
 pub mod app;
 pub mod error_template;
 pub mod fileserv;
-pub mod thing;
+pub mod user;
+pub mod crud;
+
 
 cfg_if! { if #[cfg(feature = "hydrate")] {
+    use leptos::view;
 
     use wasm_bindgen::prelude::wasm_bindgen;
     use crate::app::*;
